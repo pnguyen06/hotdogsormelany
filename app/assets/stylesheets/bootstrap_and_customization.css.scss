@@ -1,0 +1,26 @@
+@import 'bootstrap';
+
+
+* {
+  border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+}
+
+.center {
+     text-align: center;
+}
+
+.navbar-brand {
+     font-weight: bold;
+}
+
+.nav.affix {
+    position: fixed;
+    top: 0;
+    width: 100%
+}
+
+.nav-wrapper
+{
+    min-height:50px;
+}
