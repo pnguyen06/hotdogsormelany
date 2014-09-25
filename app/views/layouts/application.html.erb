@@ -10,8 +10,17 @@
 		<script src="js/bootstrap.min.js"></script>
 	</head>
 	<body>
+		<% if current_page?(root_path) %>
+
+		<% else %>
+			<div class="nav-wrapper">
+    		<div class="nav navbar navbar-default affix">
+					<%= render 'layouts/header' %>
+				</div>
+			</div>
+		<% end %>
 		<% flash.each do |name, msg| %>
-			<%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+			<%= content_tag(:div, msg, class: "alert alert-info") %>
 		<% end %>
 		<%= yield %>
 		<%= render 'layouts/footer' %>
