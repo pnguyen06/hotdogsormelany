@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
 
   	devise_parameter_sanitizer.for(:account_update) << :name
     devise_parameter_sanitizer.for(:account_update) << :description
+    devise_parameter_sanitizer.for(:account_update) << :avatar
  	end
 
 end

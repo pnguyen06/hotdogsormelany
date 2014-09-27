@@ -12,8 +12,15 @@
           <%= devise_error_messages! %>
 
           <div class="form-group">
+            <%= f.label :avatar %>
+            <%= f.file_field :avatar, class: "form-control" %>
+          </div>
+
+          <%= image_tag @user.avatar.url(:thumb), :class => "img-circle" %>
+
+          <div class="form-group">
             <%= f.label :name %>
-            <%= f.text_field :name, class: "form-control", :autofocus => true %>
+            <%= f.text_field :name, class: "form-control" %>
           </div>
 
           <div class="form-group">
@@ -24,11 +31,6 @@
           <div class="form-group">
             <%= f.label :email %>
             <%= f.email_field :email, class: "form-control" %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :team %>
-            <p><%= resource.team %></p>
           </div>
 
           <div class="form-group">

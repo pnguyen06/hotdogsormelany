@@ -4,11 +4,25 @@ class RegistrationsController < Devise::RegistrationsController
       # BackgroundWorker.trigger(resource)
       
       if resource.team == "melany"
-        resource.username = "Melany's " + Bazaar.object.titlecase
+        username = "Melany's " + Bazaar.object.titlecase
+        while(User.exists?(:username => username))
+          username = "Melany's " + Bazaar.object.titlecase
+        end
+        resource.username = username
       else
-        resource.username = "Hot Dog of the " + Bazaar.super_object.titlecase
+        username = "Hot Dog of the " + Bazaar.super_object.titlecase
+        while(User.exists?(:username => username))
+          username = "Hot Dog of the " + Bazaar.super_object.titlecase
+        end
+        resource.username = username
       end
      end
+
+    private
+
+    def user_params
+      params.require(:user).permit(:avatar)
+    end
   end
 
 
