@@ -1,4 +1,17 @@
 class RegistrationsController < Devise::RegistrationsController
+  def create
+    super do |resource|
+      # BackgroundWorker.trigger(resource)
+      
+      if resource.team == "melany"
+        resource.username = "Melany's " + Bazaar.object.titlecase
+      else
+        resource.username = "Hot Dog of the " + Bazaar.super_object.titlecase
+      end
+     end
+  end
+
+
   def update
     @user = User.find(current_user.id)
 

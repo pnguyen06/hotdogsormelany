@@ -17,18 +17,18 @@
           </div>
 
           <div class="form-group">
+            <%= f.label :username %>
+            <p><%= resource.username %></p>
+          </div>
+
+          <div class="form-group">
             <%= f.label :email %>
             <%= f.email_field :email, class: "form-control" %>
           </div>
 
           <div class="form-group">
             <%= f.label :team %>
-            <br />
-            <%= f.radio_button :team, "hotdogs" %>
-            <%= f.label :team, "Hot Dogs", :value => "hotdogs" %>
-            <br />
-            <%= f.radio_button(:team, "melany") %>
-            <%= f.label :team, "Melany", :value => "melany" %>
+            <p><%= resource.team %></p>
           </div>
 
           <div class="form-group">
