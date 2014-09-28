@@ -1,0 +1,18 @@
+<div id="wrap">
+  <div class="container" style="margin-top: 30px;">
+  	<div class="row">
+  		<div class="col-md-3">
+				<%= image_tag @user.avatar.url(:medium), :class => "img-circle" %>
+				<br /><br />
+				<b><%= @user.username.upcase %></b>
+				<p style="color: #8f8f8f;">(<%= @user.name %>)</p>
+				<%= @user.description %>
+				<br /><br />
+				Joined <%= @user.created_at.strftime("%B %Y") %>
+			</div>
+  	</div>
+		<div class="col-md-8">
+
+		</div>
+	</div>
+</div>

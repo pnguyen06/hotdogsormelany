@@ -17,12 +17,6 @@ class RegistrationsController < Devise::RegistrationsController
         resource.username = username
       end
      end
-
-    private
-
-    def user_params
-      params.require(:user).permit(:avatar)
-    end
   end
 
 
@@ -57,5 +51,9 @@ class RegistrationsController < Devise::RegistrationsController
     user.email != params[:user][:email] ||
       params[:user][:password].present? ||
       params[:user][:password_confirmation].present?
+  end
+
+  def user_params
+    params.require(:user).permit(:avatar)
   end
 end
