@@ -7,7 +7,7 @@
           <h3><%= resource.username.upcase %></h3>
         </div>
       </div>
-      <div class="panel-body", style="color: #fff;">
+      <div class="panel-body", style="color: #000;">
         <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
           <%= devise_error_messages! %>
 
