@@ -4,11 +4,10 @@
   		<div class="col-md-3">
 				<%= image_tag @user.avatar.url(:medium), :class => "img-circle" %>
 				<br /><br />
-				<b><%= @user.username.upcase %></b>
-				<p style="color: #8f8f8f;">(<%= @user.name %>)</p>
-				<%= @user.description %>
-				<br /><br />
-				Joined <%= @user.created_at.strftime("%B %Y") %>
+				<p style="color: #fff; font-weight: bold"><%= @user.username.upcase %></p>
+				<p style="color: #bdc3c7; margin-top: -10px;">(<%= @user.name %>)</p>
+				<p style="color: #fff;"><%= @user.description %></p>
+				<p style="color: #fff;">Joined <%= @user.created_at.strftime("%B %Y") %></p>
 			</div>
   	</div>
 		<div class="col-md-8">

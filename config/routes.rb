@@ -1,5 +1,7 @@
 Hotdogsormelany::Application.routes.draw do
-  devise_for :users, :controllers => { :registrations => "registrations"}
+  resources :pins
+
+  devise_for :users, controllers: { :registrations => "registrations" }
   root "pages#home"
   get "about" => "pages#about"
   resources :users

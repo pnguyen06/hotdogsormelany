@@ -2,12 +2,12 @@
   <div class="container">
     <br />
     <div class="panel panel-default">
-      <div class="panel-heading">
+      <div class="panel-heading" style="color: #fff;">
         <div class="panel-title">
-          <h1>Forgot your password?</h1>
+          <h3>FORGOT YOUR PASSWORD?</h3>
         </div>
       </div>
-      <div class="panel-body">
+      <div class="panel-body", style="color: #fff;">
         <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
           <%= devise_error_messages! %>
 
