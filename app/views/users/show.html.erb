@@ -10,13 +10,13 @@
 				<p style="color: #fff;">Joined <%= @user.created_at.strftime("%B %Y") %></p>
 			</div>
 			<div class="col-md-8" style="color: #fff;">
-				<h4>
+				<h5>
 					<% if @bolt.last.updated_at == @bolt.last.created_at %>
-						Posted on <%= @bolt.last.created_at.strftime("%b %d") %>
+						Posted <%= short_age_string(@bolt.last.created_at) %>
 					<% else %>
-						Updated on <%= @bolt.last.updated_at.strftime("%b %d") %>
+						Updated <%= short_age_string(@bolt.last.updated_at) %>
 					<% end %>
-				</h4>
+				</h5>
 				<h1>
 					<%= @bolt.last.description %>
 				</h1>

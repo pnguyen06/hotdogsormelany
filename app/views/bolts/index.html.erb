@@ -3,18 +3,20 @@
     <% @all_users.each do |all_user| %>
       <div class="row" style="color: #fff;">
         <div class="col-md-1">
-          <%= image_tag(@user.avatar.url(:thumb), :size => "50x50", :class => "img-circle") %>
+          <%= link_to image_tag(@user.avatar.url(:thumb), :size => "50x50", :class => "img-circle"), @user %>
         </div>
         <div class="col-md-11">
           <div class="row">
             <h3><%= @bolts.last.description %></h3>
           </div>
           <div class="row">
-            <%= @bolts.last.user.username %>
+            <%= link_to @bolts.last.user.username, @user %>
+            &bull;
             <% if @bolts.last.updated_at == @bolts.last.created_at %>
-            Posted on <%= @bolts.last.created_at.strftime("%b %d") %>
-          <% else %>
-            Updated on <%= @bolts.last.updated_at.strftime("%b %d") %>
+              <%= short_age_string(@bolts.last.created_at) %>
+            <% else %>
+              <%= short_age_string(@bolts.last.created_at) %>
+              &bull; Edited
           <% end %>
           </div>
         </div>
