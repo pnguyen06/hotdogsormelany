@@ -6,6 +6,7 @@ class PinsController < ApplicationController
 
   def index
     @user = current_user
+    @all_users = User.all
     @pins = Pin.all
   end
 

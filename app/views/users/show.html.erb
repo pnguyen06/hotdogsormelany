@@ -9,9 +9,18 @@
 				<p style="color: #fff;"><%= @user.description %></p>
 				<p style="color: #fff;">Joined <%= @user.created_at.strftime("%B %Y") %></p>
 			</div>
+			<div class="col-md-8" style="color: #fff;">
+				<h4>
+					<% if @pin.last.updated_at == @pin.last.created_at %>
+						Posted on <%= @pin.last.created_at.strftime("%b %d") %>
+					<% else %>
+						Updated on <%= @pin.last.updated_at.strftime("%b %d") %>
+					<% end %>
+				</h4>
+				<h1>
+					<%= @pin.last.description %>
+				</h1>
+			</div>
   	</div>
-		<div class="col-md-8">
-
-		</div>
 	</div>
 </div>

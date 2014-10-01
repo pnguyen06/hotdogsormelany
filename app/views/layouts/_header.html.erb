@@ -14,12 +14,20 @@
   	<ul class="nav navbar-nav navbar-right">
     	<li style="margin-top: 5px;"><%= link_to "About", about_path %></li>
     	<% if user_signed_in? %>
+        <li>
+          <%= link_to new_pin_path do %>
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-square-o fa-stack-2x"></i>
+              <i class="fa fa-bolt fa-stack-1x" id="spin" style="margin-top: -2px;"></i>
+            </span>
+          <% end %>
+        </li>
         <li class="dropdown">
           <%= link_to image_tag(@user.avatar.url(:thumb), :size => "30x30", :class => "img-circle") + content_tag(:span, nil, :class => "caret"), "#", :class => "dropdown-toggle", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu" role="menu">
             <li><%= link_to "Profile", current_user %></li>
             <li class="divider"></li>
-            <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+            <li><%= link_to "Account Settings", edit_user_registration_path %></li>
             <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
           </ul>
         </li>
@@ -29,3 +37,10 @@
   	</ul>
 	</div><!-- /.navbar-collapse -->
 </div>
+
+<script>
+  $('#spin').hover(
+    function(){ $(this).addClass('fa-spin') },
+    function(){ $(this).removeClass('fa-spin') }
+  )
+</script>

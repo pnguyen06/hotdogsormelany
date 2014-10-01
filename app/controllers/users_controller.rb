@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @pin = @user.pins
 
     respond_to do |format|
         format.html # show.html.erb
