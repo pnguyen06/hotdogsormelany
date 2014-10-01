@@ -4,13 +4,13 @@
 
 		<p>
 			<strong>Description:</strong>
-			<%= @pin.description %>
+			<%= @bolt.description %>
 		</p>
 
-		<% if @pin.user == current_user %>
-			<%= link_to 'Edit', edit_pin_path(@pin) %>
+		<% if @bolt.user == current_user %>
+			<%= link_to 'Edit', edit_bolt_path(@bolt) %>
 		<% end %>
 		 |
-		<%= link_to 'Back', pins_path %>
+		<%= link_to 'Back', bolts_path %>
 	</div>
 </div>

@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :pins
+  has_many :bolts
 
   validates :name, presence: true
   validates :team, presence: true
