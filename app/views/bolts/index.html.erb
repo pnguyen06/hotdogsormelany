@@ -11,6 +11,11 @@
           </div>
           <div class="row">
             <%= @bolts.last.user.username %>
+            <% if @bolts.last.updated_at == @bolts.last.created_at %>
+            Posted on <%= @bolts.last.created_at.strftime("%b %d") %>
+          <% else %>
+            Updated on <%= @bolts.last.updated_at.strftime("%b %d") %>
+          <% end %>
           </div>
         </div>
       </div>
