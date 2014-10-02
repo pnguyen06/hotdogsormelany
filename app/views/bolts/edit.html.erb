@@ -5,9 +5,13 @@
 
 		<%= render 'form' %>
 
-		<%= link_to 'Show', @bolt %> |
-		<%= link_to 'Destroy', @bolt, method: :delete, data: { confirm: 'Are you sure?' } %> |
-
+		<%= link_to 'Show', @bolt %>
+		|
+		<%= link_to @bolt, method: :delete, data: { confirm: 'Are you sure?' } do %>
+			<span class="glyphicon glyphicon-trash"></span>
+			Delete
+		<% end %>
+		|
 		<%= link_to 'Back', bolts_path %>
 	</div>
 </div>

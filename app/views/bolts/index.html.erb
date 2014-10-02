@@ -1,14 +1,12 @@
 <div id="wrap">
   <div class="container" style="margin-top: 30px;">
+  
     <% @bolts.each do |bolt| %>
-      <div class="row" style="color: #fff;">
+      <div class="row" style="color: #fff; margin-bottom: 15px;">
         <div class="col-md-1">
           <%= link_to image_tag(bolt.user.avatar.url(:thumb), :size => "50x50", :class => "img-circle"), bolt.user %>
         </div>
         <div class="col-md-11">
-          <div class="row">
-            <h3><%= bolt.description %></h3>
-          </div>
           <div class="row">
             <%= link_to bolt.user.username, bolt.user %>
             &bull;
@@ -20,38 +18,19 @@
             <% end %>
             <% if current_user && bolt.user == current_user %>
               &bull;
-              <%= link_to 'Edit', edit_bolt_path(bolt) %>
+              <%= link_to edit_bolt_path(bolt) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+              Edit
+              <% end %>
             <% end %>
           </div>
-        </div>
-      </div>
-    <% end %>
-
-
-
-    
-    <% @all_users.each do |all_user| %>
-      <div class="row" style="color: #fff;">
-        <div class="col-md-1">
-          <%= link_to image_tag(all_user.avatar.url(:thumb), :size => "50x50", :class => "img-circle"), all_user %>
-        </div>
-        <div class="col-md-11">
           <div class="row">
-            <h3><%= @bolts.last.description %></h3>
-          </div>
-          <div class="row">
-            <%= link_to @bolts.last.user.username, all_user %>
-            &bull;
-            <% if @bolts.last.updated_at == @bolts.last.created_at %>
-              <%= short_age_string(@bolts.last.created_at) %>
-            <% else %>
-              <%= short_age_string(@bolts.last.created_at) %>
-              &bull; Edited
-          <% end %>
+            <h3><%= bolt.description %></h3>
           </div>
         </div>
       </div>
-    <% end %>
+      <hr>
 
+    <% end %>
   </div>
 </div>

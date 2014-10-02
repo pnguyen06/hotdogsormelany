@@ -1,4 +1,5 @@
 module BoltsHelper
+
 	def short_age_string(time)
     diff = Time.now - time #value is seconds (float)
     diff = diff.abs.to_i
@@ -14,4 +15,5 @@ module BoltsHelper
       return "#{diff}s ago"
     end
   end
+
 end

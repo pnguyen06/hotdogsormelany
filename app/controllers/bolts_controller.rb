@@ -6,7 +6,6 @@ class BoltsController < ApplicationController
 
   def index
     @user = current_user
-    @all_users = User.all
     @bolts = Bolt.all
   end
 
