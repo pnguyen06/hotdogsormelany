@@ -1,4 +1,5 @@
 Hotdogsormelany::Application.routes.draw do
+
   resources :bolts
 
   devise_for :users, controllers: { :registrations => "registrations" }

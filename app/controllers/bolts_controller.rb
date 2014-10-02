@@ -59,4 +59,5 @@ class BoltsController < ApplicationController
     def bolt_params
       params.require(:bolt).permit(:description, :image)
     end
+
 end
