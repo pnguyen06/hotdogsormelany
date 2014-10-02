@@ -1,6 +1,11 @@
 Hotdogsormelany::Application.routes.draw do
 
-  resources :bolts
+  resources :bolts do
+    member do
+      put "like", to: "bolts#upvote"
+      put "like2", to: "bolts#upvote2"
+    end
+  end
 
   devise_for :users, controllers: { :registrations => "registrations" }
   root "pages#home"

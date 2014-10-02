@@ -44,6 +44,20 @@ class BoltsController < ApplicationController
     redirect_to bolts_url
   end
 
+  def upvote
+    @bolt = Bolt.find(params[:id])
+    @bolt.unliked_by @user
+    @bolt.liked_by current_user
+    redirect_to @bolt
+  end
+
+  def upvote2
+    @bolt = Bolt.find(params[:id])
+    @bolt.unliked_by @user
+    @bolt.liked_by current_user, :vote_weight => 2
+    redirect_to @bolt
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_bolt
@@ -59,5 +73,6 @@ class BoltsController < ApplicationController
     def bolt_params
       params.require(:bolt).permit(:description, :image)
     end
+
 
 end
