@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141002185639) do
+ActiveRecord::Schema.define(version: 20141003170518) do
 
   create_table "bolts", force: true do |t|
     t.datetime "created_at"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20141002185639) do
     t.integer  "vote_weight"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "votez"
   end
 
   add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"

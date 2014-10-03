@@ -9,8 +9,8 @@ gem 'coffee-rails', '~> 4.0.0' # Use CoffeeScript for .js.coffee assets and view
 gem 'jquery-rails' # Use jquery as the JavaScript library
 gem 'turbolinks' # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'jbuilder', '~> 1.2' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'bootstrap-sass', '~> 3.0.3.0'
-gem 'font-awesome-rails', '~> 4.0.3.1'
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'font-awesome-rails', '~> 4.2.0'
 gem 'devise', '~> 3.3.0'
 gem 'bazaar'
 gem 'paperclip', '~> 4.2'

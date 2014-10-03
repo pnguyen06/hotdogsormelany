@@ -20,6 +20,21 @@
 				<h1>
 					<%= @bolt.last.description %>
 				</h1>
+				<small>
+					<%= link_to clap2_bolt_path(@bolt.last), method: :put do %>
+	          <%= image_tag('clap.png', :size => "20x20") %>
+	          <%= image_tag('clap.png', :size => "20x20") %> 2 Claps
+	        <% end %>
+	        &nbsp; &nbsp; &nbsp;
+	        <%= link_to clap1_bolt_path(@bolt.last), method: :put do %>
+	          <%= image_tag('clap.png', :size => "20x20") %> 1 Clap
+	        <% end %>
+	        &nbsp; &nbsp; &nbsp;
+	        <%= link_to clap0_bolt_path(@bolt.last), method: :put do %>
+	          <%= image_tag('no.png', :size => "20x20") %>
+	          No Claps
+	        <% end %>
+         </small>
 			</div>
   	</div>
 	</div>

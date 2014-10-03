@@ -25,7 +25,7 @@ class BoltsController < ApplicationController
   def create
     @bolt = current_user.bolts.build(bolt_params)
     if @bolt.save
-      redirect_to @bolt, notice: 'Bolt was successfully created.'
+      redirect_to bolts_url, notice: 'Bolt was successfully created.'
     else
       render action: 'new'
     end
@@ -44,25 +44,28 @@ class BoltsController < ApplicationController
     redirect_to bolts_url
   end
 
-  def upvote
+  def clap2
     @bolt = Bolt.find(params[:id])
-    #@bolt.unliked_by @user
-    @bolt.liked_by current_user
-    redirect_to @bolt
+    @bolt.vote_by :voter => current_user, :votez => 'two', :vote_weight => 2
+    redirect_to bolts_url
   end
 
-  def upvote2
+  def clap1
     @bolt = Bolt.find(params[:id])
-    #@bolt.unliked_by @user
-    @bolt.liked_by current_user, :vote_weight => 2
-    redirect_to @bolt
+    @bolt.vote_by :voter => current_user, :votez => 'one'
+    redirect_to bolts_url
   end
 
-  def upvote0
+  def clap0
     @bolt = Bolt.find(params[:id])
-    #@bolt.unliked_by @user
-    @bolt.liked_by current_user, :vote_weight => 0
-    redirect_to @bolt
+    @bolt.vote_by :voter => current_user, :votez => 'zero', :vote_weight => 0
+    redirect_to bolts_url
+  end
+
+  def removeclap
+    @bolt = Bolt.find(params[:id])
+    @bolt.unliked_by current_user
+    redirect_to bolts_url
   end
 
   private
@@ -80,6 +83,4 @@ class BoltsController < ApplicationController
     def bolt_params
       params.require(:bolt).permit(:description, :image)
     end
-
-
 end

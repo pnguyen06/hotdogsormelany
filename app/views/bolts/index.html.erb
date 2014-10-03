@@ -5,56 +5,90 @@
       <div class="row" style="color: #fff; margin-bottom: 15px;">
         <div class="col-md-1">
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 center">
               <%= link_to image_tag(bolt.user.avatar.url(:thumb), :size => "50x50", :class => "img-circle"), bolt.user %>
             </div>
           </div>
           <div class="row">
             <div class="col-md-12 center">
-              <h4><%= bolt.votes_for.sum(:vote_weight) %></h4>
+              <h4>
+                <%= link_to bolt.votes_for.sum(:vote_weight), "#", "data-toggle" => "modal", "data-target" => ".bs-example-modal-sm", :data => {:voterUsername => bolt.get_upvotes.each} %>
+              </h4>
+              <small>
+                <% bolt.votes_for.voters.each do |user| %>
+                  <%= user.username %>
+                <% end %>
+                <%= bolt.find_votes_for(:votez => 'two').size %>
+              </small>
             </div>
           </div>
         </div>
         <div class="col-md-11">
           <div class="row">
-            <%= link_to bolt.user.username, bolt.user %>
-            &bull;
-            <% if bolt.updated_at == bolt.created_at %>
-              <%= short_age_string(bolt.created_at) %>
-            <% else %>
-              <%= short_age_string(bolt.created_at) %>
-              &bull; Edited
-            <% end %>
-            <% if current_user && bolt.user == current_user %>
-              &bull;
-              <%= link_to edit_bolt_path(bolt) do %>
-              <span class="glyphicon glyphicon-edit"></span>
-              Edit
-              <% end %>
-            <% end %>
+            <div class="col-md-12">
+              <%= link_to bolt.user.username, bolt.user %>
+              <small>
+                (<%= bolt.user.name %>)
+                &bull;
+                <% if bolt.updated_at == bolt.created_at %>
+                  <%= short_age_string(bolt.created_at) %>
+                <% else %>
+                  <%= short_age_string(bolt.created_at) %>
+                  &bull; Edited
+                <% end %>
+                <% if current_user && bolt.user == current_user %>
+                  &bull;
+                  <%= link_to edit_bolt_path(bolt) do %>
+                  <span class="fa fa-edit"></span>
+                  Edit
+                  <% end %>
+                <% end %>
+              </small>
+            </div>
           </div>
           <div class="row">
-            <h3><%= bolt.description %></h3>
+            <div class="col-md-12">
+              <h3 style="margin-top: 10px;">
+                <%= truncate(bolt.description, :length => 100) %>
+                <% if bolt.description.length > 100 %>
+                  <small><%= link_to "(Read More)", bolt.user %></small>
+                <% end %>
+              </h3>
+            </div>
           </div>
           <div class="row small">
-            <%= link_to like2_bolt_path(bolt), method: :put do %>
-              <%= image_tag('clap.png', :size => "20x20") %>
-              <%= image_tag('clap.png', :size => "20x20") %> 2 Claps
-            <% end %>
-            &nbsp; &nbsp;
-            <%= link_to like_bolt_path(bolt), method: :put do %>
-              <%= image_tag('clap.png', :size => "20x20") %> 1 Clap
-            <% end %>
-            &nbsp; &nbsp;
-            <%= link_to like0_bolt_path(bolt), method: :put do %>
-              <%= image_tag('no.png', :size => "20x20") %>
-              No Claps
-            <% end %>
+            <div class="col-md-12">
+              <%= link_to clap2_bolt_path(bolt), method: :put do %>
+                <%= image_tag('clap.png', :size => "20x20") %>
+                <%= image_tag('clap.png', :size => "20x20") %> 2 Claps
+              <% end %>
+              &nbsp; &nbsp; &nbsp;
+              <%= link_to clap1_bolt_path(bolt), method: :put do %>
+                <%= image_tag('clap.png', :size => "20x20") %> 1 Clap
+              <% end %>
+              &nbsp; &nbsp; &nbsp;
+              <%= link_to clap0_bolt_path(bolt), method: :put do %>
+                <%= image_tag('no.png', :size => "20x20") %>
+                No Claps
+              <% end %>
+              &nbsp; &nbsp; &nbsp;
+              <%= link_to removeclap_bolt_path(bolt), method: :put do %>
+                Remove Claps
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
       <hr>
-
     <% end %>
+  </div>
+</div>
+
+<!-- Small modal -->
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <p id="voterUsername">
+    </div>
   </div>
 </div>

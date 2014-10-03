@@ -2,9 +2,10 @@ Hotdogsormelany::Application.routes.draw do
 
   resources :bolts do
     member do
-      put "like", to: "bolts#upvote"
-      put "like2", to: "bolts#upvote2"
-      put "like0", to: "bolts#upvote0"
+      put "clap2", to: "bolts#clap2"
+      put "clap1", to: "bolts#clap1"
+      put "clap0", to: "bolts#clap0"
+      put "removeclap", to: "bolts#removeclap"
     end
   end
 
