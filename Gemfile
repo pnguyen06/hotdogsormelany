@@ -15,6 +15,7 @@ gem 'devise', '~> 3.3.0'
 gem 'bazaar'
 gem 'paperclip', '~> 4.2'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'gemoji'
 
 group :development, :test do
 	gem 'sqlite3' # Use sqlite3 as the database for Active Record

@@ -46,15 +46,22 @@ class BoltsController < ApplicationController
 
   def upvote
     @bolt = Bolt.find(params[:id])
-    @bolt.unliked_by @user
+    #@bolt.unliked_by @user
     @bolt.liked_by current_user
     redirect_to @bolt
   end
 
   def upvote2
     @bolt = Bolt.find(params[:id])
-    @bolt.unliked_by @user
+    #@bolt.unliked_by @user
     @bolt.liked_by current_user, :vote_weight => 2
+    redirect_to @bolt
+  end
+
+  def upvote0
+    @bolt = Bolt.find(params[:id])
+    #@bolt.unliked_by @user
+    @bolt.liked_by current_user, :vote_weight => 0
     redirect_to @bolt
   end
 

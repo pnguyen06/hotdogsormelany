@@ -4,7 +4,16 @@
     <% @bolts.each do |bolt| %>
       <div class="row" style="color: #fff; margin-bottom: 15px;">
         <div class="col-md-1">
-          <%= link_to image_tag(bolt.user.avatar.url(:thumb), :size => "50x50", :class => "img-circle"), bolt.user %>
+          <div class="row">
+            <div class="col-md-12">
+              <%= link_to image_tag(bolt.user.avatar.url(:thumb), :size => "50x50", :class => "img-circle"), bolt.user %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 center">
+              <h4><%= bolt.votes_for.sum(:vote_weight) %></h4>
+            </div>
+          </div>
         </div>
         <div class="col-md-11">
           <div class="row">
@@ -27,10 +36,20 @@
           <div class="row">
             <h3><%= bolt.description %></h3>
           </div>
-          <div class="row">
-            <%= bolt.votes_for.sum(:vote_weight) %>
-            <%= link_to "Upvote", like_bolt_path(bolt), method: :put %>
-            <%= link_to "2x Upvote", like2_bolt_path(bolt), method: :put %>
+          <div class="row small">
+            <%= link_to like2_bolt_path(bolt), method: :put do %>
+              <%= image_tag('clap.png', :size => "20x20") %>
+              <%= image_tag('clap.png', :size => "20x20") %> 2 Claps
+            <% end %>
+            &nbsp; &nbsp;
+            <%= link_to like_bolt_path(bolt), method: :put do %>
+              <%= image_tag('clap.png', :size => "20x20") %> 1 Clap
+            <% end %>
+            &nbsp; &nbsp;
+            <%= link_to like0_bolt_path(bolt), method: :put do %>
+              <%= image_tag('no.png', :size => "20x20") %>
+              No Claps
+            <% end %>
           </div>
         </div>
       </div>

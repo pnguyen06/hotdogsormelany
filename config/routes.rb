@@ -4,6 +4,7 @@ Hotdogsormelany::Application.routes.draw do
     member do
       put "like", to: "bolts#upvote"
       put "like2", to: "bolts#upvote2"
+      put "like0", to: "bolts#upvote0"
     end
   end
 

@@ -2,7 +2,7 @@
   <div class="container" style="margin-top: 30px;">
   	<div class="row">
   		<div class="col-md-3">
-				<%= image_tag @user.avatar.url(:medium), :class => "img-circle" %>
+				<%= image_tag @user.avatar.url(:medium), :class => "img-circle", :size => "200x200" %>
 				<br /><br />
 				<h4 style="color: #fff; font-weight: bold"><%= @user.username.upcase %></h4>
 				<p style="color: #bdc3c7; margin-top: -10px;">(<%= @user.name %>)</p>
