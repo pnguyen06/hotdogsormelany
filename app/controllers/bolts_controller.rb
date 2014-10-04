@@ -47,25 +47,25 @@ class BoltsController < ApplicationController
   def clap2
     @bolt = Bolt.find(params[:id])
     @bolt.vote_by :voter => current_user, :votez => 'two', :vote_weight => 2
-    redirect_to bolts_url
+    redirect_to request.referrer
   end
 
   def clap1
     @bolt = Bolt.find(params[:id])
     @bolt.vote_by :voter => current_user, :votez => 'one'
-    redirect_to bolts_url
+    redirect_to request.referrer
   end
 
   def clap0
     @bolt = Bolt.find(params[:id])
     @bolt.vote_by :voter => current_user, :votez => 'zero', :vote_weight => 0
-    redirect_to bolts_url
+    redirect_to request.referrer
   end
 
   def removeclap
     @bolt = Bolt.find(params[:id])
     @bolt.unliked_by current_user
-    redirect_to bolts_url
+    redirect_to request.referrer
   end
 
   private
