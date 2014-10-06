@@ -14,7 +14,7 @@
           <div class="row">
             <div class="col-md-10">
               <div class="form-group">
-                <%= f.label :avatar %>
+                <%= f.label :avatar %> <i><small>(for best results, use a square picture)</small></i>
                 <%= f.file_field :avatar, class: "form-control" %>
               </div>
             </div>
@@ -30,7 +30,7 @@
           <div class="form-group">
             <%= f.label :description %>
             <i><span id="charsleft" class="small"></span></i>
-            <%= f.text_field :description, class: "form-control", id: "message", :maxlength => 140, :name => "message", onKeyDown: "textCounter('message','messagecount',140)", onKeyUp: "textCounter('message','messagecount',140)" %>
+            <%= f.text_field :description, class: "form-control", id: "message", :maxlength => 140, onKeyDown: "textCounter('message','messagecount',140)", onKeyUp: "textCounter('message','messagecount',140)" %>
             <span id="charsleft" class="small"></span>
           </div>
 
@@ -74,5 +74,5 @@
 </script>
 
 <script type="text/javascript">
-  textCounter('message','messagecount',100);
+  textCounter('message','messagecount',140);
 </script>

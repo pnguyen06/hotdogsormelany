@@ -6,24 +6,29 @@
         <div class="carousel-caption">
         	<%= image_tag "logo-1000px.png", :size => "500x238"  %>
           <h1><b>CHOOSE A TEAM. MAKE NOISE.</b></h1>
-          <span class="fa fa-hand-o-down" style="font-size: 2em;"></span>
+          <%= link_to "#intro", :style => "color: #fff;" do %>
+            <span class="fa fa-hand-o-down" style="font-size: 2em;"></span>
+          <% end %>
       </div>
     </div>
   </div>
 </div>
-<div class="container" style="color: #fff;">
+<div class="container" id="intro" style="color: #fff;">
   <div class="row" style="margin-top: 30px;">
     <div class="col-md-4 center">
       <%= image_tag "pickaside.jpg", :class => "img-circle" %>
       <h3>PICK A SIDE</h3>
+      <p style="margin-left: 15px; margin-right: 15px;">Choose Hot Dogs or Melany. It doesn't matter which side you choose.</p>
     </div>
     <div class="col-md-4 center">
       <%= image_tag "makenoise.jpg", :class => "img-circle" %>
       <h3>MAKE NOISE</h3>
+      <p style="margin-left: 15px; margin-right: 15px;">Write a big, loud message (called a Bolt) that disappears after you post a new one.</p>
     </div>
     <div class="col-md-4 center">
       <%= image_tag "clapclap.jpg", :class => "img-circle" %>
       <h3>CLAP CLAP</h3>
+      <p style="margin-left: 15px; margin-right: 15px;">Give two, one, or zero Claps to acknowledge other people's Bolts.</p>
     </div>
   </div>
 </div>

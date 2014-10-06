@@ -14,12 +14,12 @@
               <h4>
                 <%= link_to bolt.votes_for.sum(:vote_weight), "#", "data-toggle" => "modal", "data-target" => ".bs-example-modal-sm", :data => {:voterUsername => bolt.get_upvotes.each} %>
               </h4>
-              <small>
+              <!--<small>
                 <% bolt.votes_for.voters.each do |user| %>
                   <%= user.username %>
                 <% end %>
                 <%= bolt.find_votes_for(:votez => 'two').size %>
-              </small>
+              </small>-->
             </div>
           </div>
         </div>

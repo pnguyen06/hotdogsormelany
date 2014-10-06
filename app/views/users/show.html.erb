@@ -7,10 +7,12 @@
 				<h4 style="color: #fff; font-weight: bold"><%= @user.username.upcase %></h4>
 				<p style="color: #bdc3c7; margin-top: -10px;">(<%= @user.name %>)</p>
 				<p style="color: #fff;"><%= @user.description %></p>
-				<p style="color: #fff;">Joined <%= @user.created_at.strftime("%B %Y") %></p>
+				<p style="color: #fff;"><i>Joined <%= @user.created_at.strftime("%B %Y") %></i></p>
 			</div>
 			<div class="col-md-8" style="color: #fff;">
 				<h5>
+					<%= @bolt.last.votes_for.sum(:vote_weight) %> Claps
+					&bull;
 					<% if @bolt.last.updated_at == @bolt.last.created_at %>
 						Posted <%= short_age_string(@bolt.last.created_at) %>
 					<% else %>

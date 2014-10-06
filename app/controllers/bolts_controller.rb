@@ -33,7 +33,7 @@ class BoltsController < ApplicationController
 
   def update
     if @bolt.update(bolt_params)
-      redirect_to @bolt, notice: 'Bolt was successfully updated.'
+      redirect_to bolts_url, notice: 'Bolt was successfully updated.'
     else
       render action: 'edit'
     end
