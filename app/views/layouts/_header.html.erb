@@ -12,10 +12,10 @@
 	<!-- Collect the nav links, forms, and other content for toggling -->
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
   	<ul class="nav navbar-nav navbar-right">
-      <li style="margin-top: 5px;"><%= link_to "Stream", bolts_path %></li>
-      <li style="margin-top: 5px;"><%= link_to "Data", "#" %></li>
       <li style="margin-top: 5px;"><%= link_to "About", about_path %></li>
+      <li style="margin-top: 5px;"><%= link_to "Data", users_path %></li>
     	<% if user_signed_in? %>
+        <li style="margin-top: 5px;"><%= link_to "Stream", bolts_path %></li>
         <li>
           <%= link_to new_bolt_path do %>
             <span class="fa-stack fa-lg">
