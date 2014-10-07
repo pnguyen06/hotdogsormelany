@@ -10,6 +10,9 @@
 				<p style="color: #fff;"><i>Joined <%= @user.created_at.strftime("%B %Y") %></i></p>
 			</div>
 			<div class="col-md-8" style="color: #fff;">
+			<% if @bolt.last.blank? %>
+
+			<% else %>
 				<h5>
 					<%= @bolt.last.votes_for.sum(:vote_weight) %> Claps
 					&bull;
@@ -38,6 +41,7 @@
 	        <% end %>
          </small>
 			</div>
+			<% end %>
   	</div>
 	</div>
 </div>
