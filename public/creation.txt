@@ -1,0 +1,37 @@
+              _
+| |          | \      
+| |          |  \    
+|=|          |  |         _
+| |  _  _|_  |  / _   _  |_
+| | (_)  |   |_/ (_) (_)  _|
+        _  _          __|
+       (_)|  |\    /|
+             | \  / |
+             |  \/  |     |
+             |      |  _  |  _   _  \/
+             |      | (/_ | (_\ | | /
+
+MADE IN NYC. FOUNDED IN 2014.
+============================================================================
+
+This creation.txt file explains the team and graphic assets behind the site.
+
+PEOPLE
+============================================================================
+
+This site was hand-crafted by Water Cooler Labs.
+
+Phil Nguyen
+*Front-end and back-end development, design, product
+
+Melany K. & Jawwad A. & Brittany D.
+*Inspiration
+
+GRAPHIC ASSETS
+============================================================================
+
+Karl Chester (photo)
+https://www.flickr.com/photos/just_point_and_shoot/14854452858
+
+Brian Talbot (photo)
+https://www.flickr.com/photos/b-tal/70737176

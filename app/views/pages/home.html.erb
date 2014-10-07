@@ -4,8 +4,16 @@
     <div class="item bg bg1 active">
       <div class="container">
         <div class="carousel-caption">
-        	<%= image_tag "logo-1000px.png", :size => "500x238"  %>
-          <h1><b>CHOOSE A TEAM. MAKE NOISE.</b></h1>
+        	<%= image_tag "logo-1000px.png", :size => "500x238", :class => "img-responsive", :style => "margin: 0 auto;" %>
+          <h1 style="margin-top: 100px; margin-bottom: 100px;"><b>Choose a team. Make noise.</b></h1>
+          <% if user_signed_in? %>
+          
+          <% else %>
+            <%= link_to "SIGN UP", "/users/sign_up", :class => "btn btn-primary" %>
+            <br /><br />
+            <p><i>or</i> <%= link_to "LOG IN", new_user_session_path, :style => "color: #fff;" %></p>
+          <% end %>
+          <p><small><%= link_to "Learn more", "#intro", :style => "color: #fff;" %></small></p>
           <%= link_to "#intro", :style => "color: #fff;" do %>
             <span class="fa fa-hand-o-down" style="font-size: 2em;"></span>
           <% end %>
