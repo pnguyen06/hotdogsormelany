@@ -5,11 +5,13 @@
       <div class="container">
         <div class="carousel-caption">
         	<%= image_tag "logo-1000px.png", :size => "500x238", :class => "img-responsive", :style => "margin: 0 auto;" %>
-          <h1 style="margin-top: 100px; margin-bottom: 100px;"><b>Choose a team. Make noise.</b></h1>
+          <hr width="10%" style="margin-top:50px; margin-bottom: 50px;">
+          <h1><b>Choose a team. Make noise.</b></h1>
+          <hr width="10%" style="margin-top:50px; margin-bottom: 50px;">
           <% if user_signed_in? %>
           
           <% else %>
-            <%= link_to "SIGN UP", "/users/sign_up", :class => "btn btn-primary" %>
+            <%= link_to "SIGN UP", "/users/sign_up", :class => "btn btn-lg btn-primary", :style => "border-radius: 50px;" %>
             <br /><br />
             <p><i>or</i> <%= link_to "LOG IN", new_user_session_path, :style => "color: #fff;" %></p>
           <% end %>
