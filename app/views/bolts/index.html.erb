@@ -36,7 +36,7 @@
                   <%= short_age_string(bolt.created_at) %>
                   &bull; Edited
                 <% end %>
-                <% if current_user && bolt.user == current_user %>
+                <% if bolt.user == current_user %>
                   &bull;
                   <%= link_to edit_bolt_path(bolt) do %>
                   <span class="fa fa-edit"></span>

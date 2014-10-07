@@ -11,7 +11,11 @@
 			</div>
 			<div class="col-md-8" style="color: #fff;">
 			<% if @bolt.last.blank? %>
-
+				<% if current_user == @user %>
+					<h1>You haven't posted a Bolt yet. What's wrong with you? <%= link_to "Get started here", new_bolt_path %>.</h1>
+				<% else %>
+					<h1><%= @user.name %> hasn't posted a Bolt yet. How lame.</h1>
+				<% end %>
 			<% else %>
 				<h5>
 					<%= @bolt.last.votes_for.sum(:vote_weight) %> Claps
