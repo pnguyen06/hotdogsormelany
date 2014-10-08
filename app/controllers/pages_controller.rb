@@ -1,9 +1,12 @@
 class PagesController < ApplicationController
   def home
-  	@user = current_user
   end
 
   def about
-  	@user = current_user
+  end
+
+  def data
+  	@user = User.all
+    @bolt = Bolt.all
   end
 end
