@@ -3,7 +3,10 @@
   	<h1>Data</h1>
     <hr width="50%">
   	<div>
-      <%= @user.count %>
+      <%= @user.where(:team => 'melany').count %>
+      <%= @user.where(:team => 'hotdogs').count %>
+      <%= count_melany_bolts(@user) %>
+      <%= count_hotdogs_bolts(@user) %>
     </div>
   </div> <!-- /. container -->
 </div>

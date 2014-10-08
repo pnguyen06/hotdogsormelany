@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
 	def index
 		@user = User.all
+    @bolt = Bolt.all
 	end
 
   def show
