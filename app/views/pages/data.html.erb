@@ -1,45 +1,98 @@
 <div id="wrap">
-  <div class="container center" style="color: #fff;">
-  	<h1>Data</h1>
-    <hr width="50%">
-  	<div>
-      <%= @user.where(:team => 'melany').count %>
-      <%= @user.where(:team => 'hotdogs').count %>
-      <%= count_melany_bolts(@user) %>
-      <%= count_hotdogs_bolts(@user) %>
+  <div class="container" style="margin-top: 30px;">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- Data Stats -->
+        <!--
+        <%= @user.where(:team => 'melany').count %>
+        <%= @user.where(:team => 'hotdogs').count %>
+        <%= count_melany_bolts(@user) %>
+        <%= count_hotdogs_bolts(@user) %>
+      -->
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h3>Number of Team Members</h3>
+          <hr style="margin-top: -10px;">
+          <canvas id="canvas" class="img-responsive center" style="margin: 0 auto;" width="850" height="200"></canvas>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 30px;">
+        <div class="col-md-12">
+          <h3>Percentage of Team Members</h3>
+          <hr style="margin-top: -10px;">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-7">
+          <h4>Team Melany is winning</h4>
+          <p>But it doesn't have to be that way.</p>
+        </div>
+        <div class="col-md-5">
+          <canvas id="chartPercentUsers" class="img-responsive" style="margin: 0 auto;" width="200" height="200"></canvas>
+        </div>
+      </div>
     </div>
-    <canvas id="myChart" width="400" height="400"></canvas>
   </div> <!-- /. container -->
 </div>
 
 <script>
-      var data = [{
-        value: 30,
-        color: "#F7464A"
-    }, {
-        value: 50,
-        color: "#E2EAE9"
-    }, {
-        value: 100,
-        color: "#D4CCC5"
-    }, {
-        value: 40,
-        color: "#949FB1"
-    }, {
-        value: 120,
-        color: "#4D5360"
+  var dataPercentUsers = [{
+    value: 1,
+    color: "#F7464A",
+    label: "Melany"
+  }, {
+    value: 1,
+    color: "#E2EAE9",
+    label: "Hot Dogs"
+  }]
+
+  var optionsPercentUsers = {
+    animation: true
+  };
+
+  //Get the context of the canvas element we want to select
+  var c = $('#chartPercentUsers');
+  var ct = c.get(0).getContext('2d');
+  var ctx = document.getElementById("chartPercentUsers").getContext("2d");
+  /*************************************************************************/
+  chartPercentUsers = new Chart(ct).Doughnut(dataPercentUsers, optionsPercentUsers);
+
+
+  var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+    var lineChartData = {
+      labels : ["January","February","March","April","May","June","July"],
+      datasets : [
+        {
+          label: "My First dataset",
+          fillColor : "rgba(220,220,220,0.2)",
+          strokeColor : "rgba(220,220,220,1)",
+          pointColor : "rgba(220,220,220,1)",
+          pointStrokeColor : "#fff",
+          pointHighlightFill : "#fff",
+          pointHighlightStroke : "rgba(220,220,220,1)",
+          data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+        },
+        {
+          label: "My Second dataset",
+          fillColor : "rgba(151,187,205,0.2)",
+          strokeColor : "rgba(151,187,205,1)",
+          pointColor : "rgba(151,187,205,1)",
+          pointStrokeColor : "#fff",
+          pointHighlightFill : "#fff",
+          pointHighlightStroke : "rgba(151,187,205,1)",
+          data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+        }
+      ]
+
     }
+    var ctx = document.getElementById("canvas").getContext("2d");
+    window.myLine = new Chart(ctx).Line(lineChartData, {
+      responsive: false
+    });
+  
+  
 
-    ]
 
-    var options = {
-        animation: false
-    };
 
-    //Get the context of the canvas element we want to select
-    var c = $('#myChart');
-    var ct = c.get(0).getContext('2d');
-    var ctx = document.getElementById("myChart").getContext("2d");
-    /*************************************************************************/
-    myNewChart = new Chart(ct).Doughnut(data, options);
 </script>
