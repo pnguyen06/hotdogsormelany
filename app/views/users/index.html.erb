@@ -1,0 +1,26 @@
+<div id="wrap">
+  <div class="container" style="margin-top: 30px;">
+  	<!-- Data Stats -->
+  	<table class="table table-striped">
+  		<thead>
+  			<tr>
+  				<th></th>
+  				<th>Melany</th>
+  				<th>Hot Dogs</th>
+  			</tr>
+  		</thead>
+  		<tbody>
+  			<tr>
+  				<td>User Count</td>
+  				<td><%= @users.where(:team => 'melany').count %></td>
+  				<td><%= @users.where(:team => 'hotdogs').count %></td>
+  			</tr>
+  			<tr>
+  				<td>Bolt Count</td>
+    			<td><%= count_melany_bolts(@users) %></td>
+    			<td><%= count_hotdogs_bolts(@users) %></td>
+    		</tr>
+    	</tbody>
+  	</table>
+	</div>
+</div>
