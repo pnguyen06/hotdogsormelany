@@ -2,7 +2,7 @@ class BoltsController < ApplicationController
   before_action :set_bolt, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
-
+  after_action :last_bolt, only: [:create]
 
   def index
     @user = current_user
@@ -82,5 +82,11 @@ class BoltsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def bolt_params
       params.require(:bolt).permit(:description, :image)
+    end
+
+    def last_bolt
+      user = @bolt.user
+      user.last_bolt_at = @bolt.created_at
+      user.save!
     end
 end
