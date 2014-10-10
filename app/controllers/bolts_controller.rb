@@ -6,7 +6,7 @@ class BoltsController < ApplicationController
 
   def index
     @user = current_user
-    @bolts = Bolt.all.order(created_at: :desc)
+    @users = User.all.order(last_bolt_at: :desc)
   end
 
   def show
