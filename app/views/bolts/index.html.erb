@@ -42,8 +42,8 @@
           <div class="row">
             <div class="col-md-12">
               <h2 style="margin-top: 10px;">
-                <%= truncate(user.bolts.last.description, :length => 100) %>
-                <% if user.bolts.last.description.length > 100 %>
+                <%= truncate(user.bolts.last.description, :length => 300) %>
+                <% if user.bolts.last.description.length > 300 %>
                   <small><%= link_to "(Read More)", user %></small>
                 <% end %>
               </h2>
