@@ -12,14 +12,9 @@
           <div class="row">
             <div class="col-md-12 center">
               <h4>
-                <%= link_to bolt.votes_for.sum(:vote_weight), "#", "data-toggle" => "modal", "data-target" => ".bs-example-modal-sm", :data => {:voterUsername => bolt.get_upvotes.each} %>
+                <%= bolt.votes_for.sum(:vote_weight) %>
+                <!--<%= link_to bolt.votes_for.sum(:vote_weight), "#", "data-toggle" => "modal", "data-target" => ".bs-example-modal-sm", :data => {:voterUsername => bolt.get_upvotes.each} %>-->
               </h4>
-              <!--<small>
-                <% bolt.votes_for.voters.each do |user| %>
-                  <%= user.username %>
-                <% end %>
-                <%= bolt.find_votes_for(:votez => 'two').size %>
-              </small>-->
             </div>
           </div>
         </div>
@@ -28,8 +23,8 @@
             <div class="col-md-12">
               <%= link_to bolt.user.username, bolt.user %>
               <small>
-                (<%= bolt.user.name %>)
-                &bull;
+                <!--(<%= bolt.user.name %>)
+                &bull;-->
                 <% if bolt.updated_at == bolt.created_at %>
                   <%= short_age_string(bolt.created_at) %>
                 <% else %>
@@ -39,8 +34,8 @@
                 <% if bolt.user == current_user %>
                   &bull;
                   <%= link_to edit_bolt_path(bolt) do %>
-                  <span class="fa fa-edit"></span>
-                  Edit
+                    <span class="fa fa-edit"></span>
+                    Edit
                   <% end %>
                 <% end %>
               </small>
@@ -48,15 +43,15 @@
           </div>
           <div class="row">
             <div class="col-md-12">
-              <h3 style="margin-top: 10px;">
+              <h2 style="margin-top: 10px;">
                 <%= truncate(bolt.description, :length => 100) %>
                 <% if bolt.description.length > 100 %>
                   <small><%= link_to "(Read More)", bolt.user %></small>
                 <% end %>
-              </h3>
+              </h2>
             </div>
           </div>
-          <div class="row small">
+          <div class="row small" style="margin-top: 10px;">
             <div class="col-md-12">
               <%= link_to clap2_bolt_path(bolt), method: :put do %>
                 <%= image_tag('clap.png', :size => "20x20") %>
@@ -77,9 +72,16 @@
               <% end %>
             </div>
           </div>
+          <div class="row" style="margin-top: 10px;">
+            <div class="col-md-12">
+              <% bolt.votes_for.voters.each do |user| %>
+                <%= link_to (image_tag user.avatar.url(:thumb),:size => "20x20", :class => "img-circle", :title => user.username), user %>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
-      <hr>
+      <hr style="margin-top: -10px;">
     <% end %>
   </div>
 </div>
@@ -88,7 +90,7 @@
 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
-      <p id="voterUsername">
+      <p id="voterUsername"></p>
     </div>
   </div>
 </div>

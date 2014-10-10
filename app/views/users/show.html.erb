@@ -5,7 +5,7 @@
 				<%= image_tag @user.avatar.url(:medium), :class => "img-circle", :size => "200x200" %>
 				<br /><br />
 				<h4 style="font-weight: bold"><%= @user.username.upcase %></h4>
-				<p style="color: #bdc3c7; margin-top: -10px;">(<%= @user.name %>)</p>
+				<!--<p style="color: #bdc3c7; margin-top: -10px;">(<%= @user.name %>)</p>-->
 				<p><%= @user.description %></p>
 				<p><i>Joined <%= @user.created_at.strftime("%B %Y") %></i></p>
 			</div>
@@ -25,8 +25,15 @@
 					<% else %>
 						Updated <%= short_age_string(@bolt.last.updated_at) %>
 					<% end %>
+					<% if @bolt.last.user == current_user %>
+            &bull;
+            <%= link_to edit_bolt_path(@bolt.last) do %>
+              <span class="fa fa-edit"></span>
+              Edit
+            <% end %>
+          <% end %>
 				</h5>
-				<h1>
+				<h1 style="font-size: 400%;">
 					<%= @bolt.last.description %>
 				</h1>
 				<small>

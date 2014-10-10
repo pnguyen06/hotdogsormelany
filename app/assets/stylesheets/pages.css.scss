@@ -25,3 +25,12 @@ a:hover {
 	color: #e74c3c;
 	text-decoration: none;
 }
+
+.about_jumbo {
+  background: url('about/about_banner.jpg') center;
+  height: 250px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  margin-top: -20px;
+}

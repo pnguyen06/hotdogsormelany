@@ -1,7 +1,10 @@
 <div id="wrap">
+  <div class="jumbotron about_jumbo">
+    <div class="container">
+      <h2>*beep boop* DATA *beep boop boop*</h2>
+    </div>
+  </div>
   <div class="container" style="margin-top: 30px;">
-    <div class="row">
-      <div class="col-md-12">
         <!-- Data Stats -->
         <!--
         <%= @user.where(:team => 'melany').count %>
@@ -9,28 +12,70 @@
         <%= count_melany_bolts(@user) %>
         <%= count_hotdogs_bolts(@user) %>
       -->
+    <div class="row">
+      <div class="col-md-12 center">
+        <small>LEGEND</small>
       </div>
-      <div class="row">
-        <div class="col-md-12">
-          <h3>Number of Team Members</h3>
-          <hr style="margin-top: -10px;">
-          <canvas id="canvas" class="img-responsive center" style="margin: 0 auto;" width="850" height="200"></canvas>
-        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 col-md-offset-4 center" style="background-color: rgba(231, 76, 60, 1.0); border: 1px solid; color: #fff;">
+        <small>Hot Dogs</small>
       </div>
-      <div class="row" style="margin-top: 30px;">
-        <div class="col-md-12">
-          <h3>Percentage of Team Members</h3>
-          <hr style="margin-top: -10px;">
-        </div>
+      <div class="col-md-2 center" style="background-color: rgba(241, 196, 15, 1.0); border: 1px solid; color: #fff;">
+        <small>Melany</small>
       </div>
-      <div class="row">
-        <div class="col-md-7">
-          <h4>Team Melany is winning</h4>
-          <p>But it doesn't have to be that way.</p>
-        </div>
-        <div class="col-md-5">
-          <canvas id="chartPercentUsers" class="img-responsive" style="margin: 0 auto;" width="200" height="200"></canvas>
-        </div>
+    </div>
+    <hr width="50%">
+    <div class="row"> <!-- User -->
+      <div class="col-md-12 center">
+        <h3>Team Melany is winning in users</h3>
+          <p style="color: #7f8c8d;">But it doesn't have to be that way. Invite a friend to join your side!</p>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 10px;">
+      <div class="col-md-6">
+        Number of Users by Team
+      </div>
+      <div class="col-md-6">
+        Percentage of Users by Team
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <canvas id="chartNumberUsers" class="img-responsive center" style="margin: 0 auto;" width="450" height="200"></canvas>
+      </div>
+      <div class="col-md-6">
+        <canvas id="chartPercentUsers" class="img-responsive" style="margin: 0 auto;" width="200" height="200"></canvas>
+      </div>
+    </div> <!-- /. User -->
+    <hr width="50%">
+    <!-- Bolt
+    <div class="row" style="margin-top: 50px;">
+      <div class="col-md-12 center">
+        <h4>Team Melany is winning in Bolts</h4>
+          <p style="color: #7f8c8d;">But it doesn't have to be that way.</p>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 10px;">
+      <div class="col-md-6">
+        Number of Bolts by Team
+      </div>
+      <div class="col-md-6">
+        Percentage of Bolts by Team
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <canvas id="canvas" class="img-responsive center" style="margin: 0 auto;" width="450" height="200"></canvas>
+      </div>
+      <div class="col-md-6">
+        <canvas id="chartPercentUsers" class="img-responsive" style="margin: 0 auto;" width="200" height="200"></canvas>
+      </div>
+    </div>
+    <hr width="50%"> -->
+    <div class="row">
+      <div class="col-md-12 center">
+        <h4>More data regarding Bolts and Claps to come...</h4>
       </div>
     </div>
   </div> <!-- /. container -->
@@ -38,12 +83,12 @@
 
 <script>
   var dataPercentUsers = [{
-    value: 1,
-    color: "#F7464A",
+    value: .5,
+    color: "rgba(241, 196, 15, 1.0)",
     label: "Melany"
   }, {
-    value: 1,
-    color: "#E2EAE9",
+    value: .5,
+    color: "rgba(231, 76, 60, 1.0)",
     label: "Hot Dogs"
   }]
 
@@ -55,7 +100,7 @@
   var c = $('#chartPercentUsers');
   var ct = c.get(0).getContext('2d');
   var ctx = document.getElementById("chartPercentUsers").getContext("2d");
-  /*************************************************************************/
+
   chartPercentUsers = new Chart(ct).Doughnut(dataPercentUsers, optionsPercentUsers);
 
 
@@ -65,9 +110,9 @@
       datasets : [
         {
           label: "My First dataset",
-          fillColor : "rgba(220,220,220,0.2)",
-          strokeColor : "rgba(220,220,220,1)",
-          pointColor : "rgba(220,220,220,1)",
+          fillColor : "rgba(241, 196, 15, 0.2)",
+          strokeColor : "rgba(241, 196, 15, 1)",
+          pointColor : "rgba(241, 196, 15, 1)",
           pointStrokeColor : "#fff",
           pointHighlightFill : "#fff",
           pointHighlightStroke : "rgba(220,220,220,1)",
@@ -75,9 +120,9 @@
         },
         {
           label: "My Second dataset",
-          fillColor : "rgba(151,187,205,0.2)",
-          strokeColor : "rgba(151,187,205,1)",
-          pointColor : "rgba(151,187,205,1)",
+          fillColor : "rgba(231, 76, 60, 0.2)",
+          strokeColor : "rgba(231, 76, 60, 1)",
+          pointColor : "rgba(231, 76, 60, 1)",
           pointStrokeColor : "#fff",
           pointHighlightFill : "#fff",
           pointHighlightStroke : "rgba(151,187,205,1)",
@@ -86,13 +131,9 @@
       ]
 
     }
-    var ctx = document.getElementById("canvas").getContext("2d");
+    var ctx = document.getElementById("chartNumberUsers").getContext("2d");
     window.myLine = new Chart(ctx).Line(lineChartData, {
       responsive: false
     });
-  
-  
-
-
 
 </script>
