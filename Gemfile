@@ -16,6 +16,7 @@ gem 'bazaar'
 gem 'paperclip', '~> 4.2'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'gemoji'
+gem 'aws-sdk', '~> 1.55.0'
 
 group :development, :test do
 	gem 'sqlite3' # Use sqlite3 as the database for Active Record
