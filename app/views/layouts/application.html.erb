@@ -11,19 +11,16 @@
 		<%= favicon_link_tag "/favicon.ico?1"%>
 	</head>
 	<body>
-		<% if current_page?(root_path) %>
+	
+		
 
-		<% else %>
-			<div class="nav-wrapper">
-    		<div class="nav navbar navbar-default">
-					<%= render 'layouts/header' %>
-				</div>
-			</div>
-		<% end %>
-		<% flash.each do |name, msg| %>
-			<%= content_tag(:div, msg, class: "alert alert-info") %>
-		<% end %>
-		<%= yield %>
+		<div id="wrap">
+			<%= render 'layouts/header' %>
+			<% flash.each do |name, msg| %>
+				<%= content_tag(:div, msg, class: "alert alert-info") %>
+			<% end %>
+			<%= yield %>
+		</div>
 		<%= render 'layouts/footer' %>
 	</body>
 </html>
