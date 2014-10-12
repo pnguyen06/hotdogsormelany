@@ -14,7 +14,7 @@
   	<ul class="nav navbar-nav navbar-right">
       <li style="margin-top: 5px;"><%= link_to "About", about_path %></li>
       <li style="margin-top: 5px;"><%= link_to "Data", data_path %></li>
-    	<% if user_signed_in? %>
+    	<!--<% if user_signed_in? %>
         <li style="margin-top: 5px;"><%= link_to "Stream", bolts_path %></li>
         <li>
           <%= link_to new_bolt_path do %>
@@ -35,7 +35,7 @@
         </li>
     	<% else %>
     		<li style="margin-top: 5px;"><%= link_to "Log In", new_user_session_path %></li>
-    	<% end %>
+    	<% end %>-->
   	</ul>
 	</div><!-- /.navbar-collapse -->
 </div>
