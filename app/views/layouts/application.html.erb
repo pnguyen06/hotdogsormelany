@@ -11,15 +11,10 @@
 		<%= favicon_link_tag "/favicon.ico?1"%>
 	</head>
 	<body>
-		<% if current_page?(root_path) %>
-
-		<% else %>
-			<div class="nav-wrapper">
+		
 				<nav class="navbar navbar-default" role="navigation">
 					<%= render 'layouts/header' %>
 				</nav>
-			</div>
-		<% end %>
 		<% flash.each do |name, msg| %>
 			<%= content_tag(:div, msg, class: "alert alert-info") %>
 		<% end %>
