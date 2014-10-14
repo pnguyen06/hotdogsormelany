@@ -28,47 +28,45 @@
     <div class="row">
       <div class="col-md-6" style="margin-top: 10px;">
         Number of Users by Team
-        <canvas id="chartNumberUsers" class="img-responsive center" style="margin: 0 auto;" width="450" height="200"></canvas>
+        <br /><br />
+        <canvas id="chartNumberUsers" class="img-responsive center" style="margin: 0 auto;" width="585" height="260"></canvas>
       </div>
       <div class="col-md-6" style="margin-top: 10px;">
         Percentage of Users by Team
-        <canvas id="chartPercentUsers" class="img-responsive" style="margin: 0 auto;" width="200" height="200"></canvas>
+        <br /><br />
+        <canvas id="chartPercentUsers" class="img-responsive" style="margin: 0 auto;" width="260" height="260"></canvas>
       </div>
     </div> <!-- /. User -->
     <hr width="50%">
-    <!-- Bolt
-    <div class="row" style="margin-top: 50px;">
+    <div class="row"> <!-- Bolt -->
       <div class="col-md-12 center">
-        <h4>Team Melany is winning in Bolts</h4>
-          <p style="color: #7f8c8d;">But it doesn't have to be that way.</p>
+        <h3>Team Melany is winning in Bolts</h3>
+          <p style="color: #7f8c8d;">But it doesn't have to be that way. Post a new, loud Bolt!</p>
       </div>
     </div>
-    <div class="row" style="margin-top: 10px;">
-      <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-6" style="margin-top: 10px;">
         Number of Bolts by Team
+        <br /><br />
+        <canvas id="chartNumberBolts" class="img-responsive center" style="margin: 0 auto;" width="585" height="260"></canvas>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6" style="margin-top: 10px;">
         Percentage of Bolts by Team
+        <br /><br />
+        <canvas id="chartPercentBolts" class="img-responsive" style="margin: 0 auto;" width="260" height="260"></canvas>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <canvas id="canvas" class="img-responsive center" style="margin: 0 auto;" width="450" height="200"></canvas>
-      </div>
-      <div class="col-md-6">
-        <canvas id="chartPercentUsers" class="img-responsive" style="margin: 0 auto;" width="200" height="200"></canvas>
-      </div>
-    </div>
-    <hr width="50%"> -->
+    </div> <!-- /. Bolt -->
+    <hr width="50%">
     <div class="row">
       <div class="col-md-12 center">
-        <h4>More data regarding Bolts and Claps to come...</h4>
+        <h4>More data to come...</h4>
       </div>
     </div>
   </div> <!-- /. container -->
 </div>
 
 <script>
+  /* USER PERCENTAGE */
   var dataPercentUsers = [{
     value: .52,
     color: "rgba(241, 196, 15, 1.0)",
@@ -83,13 +81,13 @@
     animation: true
   };
 
-  //Get the context of the canvas element we want to select
   var c = $('#chartPercentUsers');
   var ct = c.get(0).getContext('2d');
   var ctx = document.getElementById("chartPercentUsers").getContext("2d");
 
   chartPercentUsers = new Chart(ct).Doughnut(dataPercentUsers, optionsPercentUsers);
 
+  /* USER COUNT */
   var lineChartData = {
     labels : ["10/08","10/09","10/10", "10/11", "10/12", "10/13","10/14"],
     datasets : [
@@ -118,6 +116,55 @@
   var ctx = document.getElementById("chartNumberUsers").getContext("2d");
   window.myLine = new Chart(ctx).Line(lineChartData, {
     responsive: false
+  });
+
+  /* BOLT PERCENTAGE */
+  var dataPercentBolts = [{
+    value: .63,
+    color: "rgba(241, 196, 15, 1.0)",
+    label: "Melany"
+  }, {
+    value: .37,
+    color: "rgba(231, 76, 60, 1.0)",
+    label: "Hot Dogs"
+  }]
+
+  var optionsPercentBolts = {
+    animation: true
+  };
+
+  var c = $('#chartPercentBolts');
+  var ct = c.get(0).getContext('2d');
+  var ctx = document.getElementById("chartPercentBolts").getContext("2d");
+
+  chartPercentBolts = new Chart(ct).Doughnut(dataPercentBolts, optionsPercentBolts);
+
+  /* BOLT COUNT */
+  var barChartData = {
+    labels : ["10/14"],
+    datasets : [
+      {
+        label: "Melany",
+        fillColor : "rgba(241, 196, 15, 0.2)",
+        strokeColor : "rgba(241, 196, 15, 0.8)",
+        highlightFill: "rgba(241, 196, 15, 0.5)",
+        highlightStroke: "rgba(241, 196, 15, 1)",
+        data : [12]
+      },
+      {
+        label: "Hot Dogs",
+        fillColor : "rgba(231, 76, 60, 0.2)",
+        strokeColor : "rgba(231, 76, 60, 0.8)",
+        highlightFill : "rgba(231, 76, 60, 0.5)",
+        highlightStroke : "rgba(231, 76, 60, 1)",
+        data : [7]
+      }
+    ]
+
+  }
+  var ctx = document.getElementById("chartNumberBolts").getContext("2d");
+  window.myBar = new Chart(ctx).Bar(barChartData, {
+      responsive : true
   });
 
 </script>
