@@ -6,19 +6,33 @@
   			<tr>
   				<th></th>
   				<th>Melany</th>
+          <th></th>
   				<th>Hot Dogs</th>
+          <th></th>
   			</tr>
   		</thead>
   		<tbody>
   			<tr>
   				<td>User Count</td>
   				<td><%= @users.where(:team => 'melany').count %></td>
+          <td>
+            <%= number_to_percentage(100*@users.where(:team => 'melany').count.to_f / (@users.where(:team => 'melany').count + @users.where(:team => 'hotdogs').count)) %>
+          </td>
   				<td><%= @users.where(:team => 'hotdogs').count %></td>
+          <td>
+            <%= number_to_percentage(100*@users.where(:team => 'hotdogs').count.to_f / (@users.where(:team => 'melany').count + @users.where(:team => 'hotdogs').count)) %>
+          </td>
   			</tr>
   			<tr>
   				<td>Bolt Count</td>
     			<td><%= count_melany_bolts(@users) %></td>
+          <td>
+            <%= number_to_percentage(100*count_melany_bolts(@users).to_f / (count_melany_bolts(@users) + count_hotdogs_bolts(@users))) %>
+          </td>
     			<td><%= count_hotdogs_bolts(@users) %></td>
+          <td>
+            <%= number_to_percentage(100*count_hotdogs_bolts(@users).to_f / (count_melany_bolts(@users) + count_hotdogs_bolts(@users))) %>
+          </td>
     		</tr>
     	</tbody>
   	</table>
