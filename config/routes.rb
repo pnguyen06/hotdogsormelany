@@ -9,7 +9,7 @@ Hotdogsormelany::Application.routes.draw do
     end
   end
 
-  devise_for :users, controllers: { :registrations => "registrations" }
+  devise_for :users, controllers: { :registrations => "registrations", :passwords => "passwords" }
   root "pages#home"
   get "about" => "pages#about"
   get "data" => "pages#data"
