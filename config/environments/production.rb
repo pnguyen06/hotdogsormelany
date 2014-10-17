@@ -90,8 +90,8 @@ Hotdogsormelany::Application.configure do
     :port => 587,
     :authentication => :plain,   # I've also tried :login
     :enable_starttls_auto => true,  # Also tried tls => true
-    :user_name => 'myemail@gmail.com',
-    :password => 'mypassword'
+    :user_name => ENV['USERNAME'],
+    :password => ENV['PASSWORD']
    }
 
   #config.action_mailer.smtp_settings = {
