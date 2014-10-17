@@ -82,11 +82,23 @@ Hotdogsormelany::Application.configure do
   # Set to actual hostname
   config.action_mailer.default_url_options = { :host => 'http://hotdogsormelany.com' }
   config.action_mailer.delivery_method = :smtp
+  
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {
-  :address => "127.0.0.1",
-  :port    => 25,
-  :domain  => 'yourdomain.com'
-}
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :authentication => :plain,   # I've also tried :login
+    :enable_starttls_auto => true,  # Also tried tls => true
+    :user_name => 'myemail@gmail.com',
+    :password => 'mypassword'
+   }
+
+  #config.action_mailer.smtp_settings = {
+  #:address => "127.0.0.1",
+  #:port    => 25,
+  #:domain  => 'yourdomain.com'
+#}
 
   # Sets Paperclip to upload images to Amazon S3
   config.paperclip_defaults = {
