@@ -81,6 +81,12 @@ Hotdogsormelany::Application.configure do
   # Required for Devise
   # Set to actual hostname
   config.action_mailer.default_url_options = { :host => 'http://hotdogsormelany.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  :address => "127.0.0.1",
+  :port    => 25,
+  :domain  => 'yourdomain.com'
+}
 
   # Sets Paperclip to upload images to Amazon S3
   config.paperclip_defaults = {
