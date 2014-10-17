@@ -89,7 +89,6 @@ Hotdogsormelany::Application.configure do
     :address => "smtp.gmail.com",
     :port => 587,
     :authentication => :plain,   # I've also tried :login
-    :enable_starttls_auto => true,  # Also tried tls => true
     :user_name => ENV['USERNAME'],
     :password => ENV['PASSWORD']
    }
