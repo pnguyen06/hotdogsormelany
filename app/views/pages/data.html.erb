@@ -21,7 +21,15 @@
     <hr width="50%">
     <div class="row"> <!-- User -->
       <div class="col-md-12 center">
-        <h3>Both teams are tied users</h3>
+        <h3>
+          <% if @user.where(:team => 'melany').count > @user.where(:team => 'hotdogs').count %>
+            Team Melany has more users
+          <% elsif @user.where(:team => 'melany').count < @user.where(:team => 'hotdogs').count %>
+            Team Hot Dogs has more users
+          <% else %>
+            Both teams are tied in users
+          <% end %>
+        </h3>
           <p style="color: #7f8c8d;">But it doesn't have to be that way. Invite a friend to join your side!</p>
       </div>
     </div>
@@ -40,7 +48,15 @@
     <hr width="50%">
     <div class="row"> <!-- Bolt -->
       <div class="col-md-12 center">
-        <h3>Team Melany is winning in Bolts</h3>
+        <h3>
+          <% if count_melany_bolts(@user) > count_hotdogs_bolts(@user) %>
+            Team Melany has more Bolts
+          <% elsif count_melany_bolts(@user) < count_hotdogs_bolts(@user) %>
+            Team Hot Dogs has more Bolts
+          <% else %>
+            Both teams are tied in Bolts
+          <% end %>
+        </h3>
           <p style="color: #7f8c8d;">But it doesn't have to be that way. Post a new, loud Bolt!</p>
       </div>
     </div>
