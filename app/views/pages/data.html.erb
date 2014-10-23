@@ -131,16 +131,17 @@
   }
   var ctx = document.getElementById("chartNumberUsers").getContext("2d");
   window.myLine = new Chart(ctx).Line(lineChartData, {
-    responsive: false
+    responsive: false,
+    scaleBeginAtZero: true
   });
 
   /* BOLT PERCENTAGE */
   var dataPercentBolts = [{
-    value: .66,
+    value: .67,
     color: "rgba(241, 196, 15, 1.0)",
     label: "Melany"
   }, {
-    value: .34,
+    value: .33,
     color: "rgba(231, 76, 60, 1.0)",
     label: "Hot Dogs"
   }]
@@ -165,7 +166,7 @@
         strokeColor : "rgba(241, 196, 15, 0.8)",
         highlightFill: "rgba(241, 196, 15, 0.5)",
         highlightStroke: "rgba(241, 196, 15, 1)",
-        data : [19]
+        data : [20]
       },
       {
         label: "Hot Dogs",
